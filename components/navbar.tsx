@@ -1,7 +1,11 @@
 import Container from "@/components/ui/container";
 import Link from "next/link";
+import MainNav from "./main-nav";
 
 const Navbar = () => {
+
+  
+
   return (
     <div className='border-b'>
         <Container>
@@ -11,6 +15,8 @@ const Navbar = () => {
               className="ml-4 flex lg:ml-0 gap-x-2">
                 <p className="font-bold text-xl">STORE</p>
             </Link>
+            <MainNav
+            data={[]} />
           </div>
         </Container>
     </div>
