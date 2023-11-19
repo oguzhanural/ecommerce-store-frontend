@@ -1,8 +1,12 @@
+import { cn } from "@/lib/utils";
 import { forwardRef } from "react";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps> (({
+// Buradaki Button componentini ref'lemek için forwardRef kullandık. 
+// Shadcn de ki hazır buton yerine daha fazla özelleştirme yapabilmek için.
+
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
      className,
      children,
      disabled,
@@ -10,10 +14,17 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps> (({
      ...props
 }, ref) => {
     return (
-        <button>
-
+        <button
+        className={cn(`
+            w-auto rounded-full bg-black border-transparent px-5 py-3
+            disabled:cursor-not-allowed disabled:opacity-50
+            text-white font-semibold hover:opacity-75 transition
+        `, className)}
+         ref={ref}>
+            {children}
         </button>
     )
 });
 
 Button.displayName = 'Button';
+export default Button;
